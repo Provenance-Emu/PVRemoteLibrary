@@ -16,7 +16,6 @@ library screens, alone or combined with the local one. It draws nothing.
 | `RemoteCatalogueStore` | Keeps each source's catalogue on disk so a library opens offline |
 | `RemoteCoverCache` | Cover thumbnails on disk, revalidated by ETag |
 | `RemoteLibraryBrowser` | The `@Observable` view model an app's library screen reads |
-| `RomMSource` (product `PVRemoteLibraryRomM`) | A RomM server as a source |
 
 ## Using it
 
@@ -54,5 +53,6 @@ xcrun swift test
 
 ## Status
 
-First cut, used by no app yet. Not built here: a content-server source (Provenance
-adapts its existing `ECSSource`), peer sources, background downloads, save sync.
+First cut. Not built here: content-server, RomM and peer sources (each app adapts its
+own for now, because the server client package has no stable version tags to depend
+on), background downloads, save sync.

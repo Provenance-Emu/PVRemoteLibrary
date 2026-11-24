@@ -14,25 +14,18 @@ let package = Package(
         .visionOS(.v1)
     ],
     products: [
-        .library(name: "PVRemoteLibrary", targets: ["PVRemoteLibrary"]),
-        .library(name: "PVRemoteLibraryRomM", targets: ["PVRemoteLibraryRomM"])
+        .library(name: "PVRemoteLibrary", targets: ["PVRemoteLibrary"])
     ],
     dependencies: [
-        .package(url: "https://github.com/Provenance-Emu/PVSystems.git", from: "1.0.0"),
-        .package(url: "https://github.com/Provenance-Emu/emulator-content-server.git", revision: "7b30839778e502573ee0cfb91c4bf94a1de51fa8")
+        // Versioned dependencies only: a package pinned to a revision cannot be used
+        // from a package that apps depend on by version. That is why the content
+        // server and RomM sources live in the apps until that client has stable tags.
+        .package(url: "https://github.com/Provenance-Emu/PVSystems.git", from: "1.0.0")
     ],
     targets: [
         .target(
             name: "PVRemoteLibrary",
             dependencies: [.product(name: "PVSystems", package: "PVSystems")]
-        ),
-        .target(
-            name: "PVRemoteLibraryRomM",
-            dependencies: [
-                "PVRemoteLibrary",
-                .product(name: "PVSystems", package: "PVSystems"),
-                .product(name: "RomMClient", package: "emulator-content-server")
-            ]
         ),
         .testTarget(
             name: "PVRemoteLibraryTests",
