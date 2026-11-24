@@ -1,0 +1,23 @@
+{
+  "originHash" : "f805ba3500f73b971ea1537fc3566463d780a2156ee4ea9a5018737546658bbe",
+  "pins" : [
+    {
+      "identity" : "emulator-content-server",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Provenance-Emu/emulator-content-server.git",
+      "state" : {
+        "revision" : "7b30839778e502573ee0cfb91c4bf94a1de51fa8"
+      }
+    },
+    {
+      "identity" : "pvsystems",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Provenance-Emu/PVSystems.git",
+      "state" : {
+        "revision" : "da48dce7d7ae3dc3f84a7e0f1a5e3c7a3655c447",
+        "version" : "1.0.1"
+      }
+    }
+  ],
+  "version" : 3
+}
