@@ -14,7 +14,9 @@ let package = Package(
         .visionOS(.v1)
     ],
     products: [
-        .library(name: "PVRemoteLibrary", targets: ["PVRemoteLibrary"])
+        .library(name: "PVRemoteLibrary", targets: ["PVRemoteLibrary"]),
+        // Optional SwiftUI pieces every app draws the same way: transfer progress, source pill.
+        .library(name: "PVRemoteLibraryUI", targets: ["PVRemoteLibraryUI"])
     ],
     dependencies: [
         // Versioned dependencies only: a package pinned to a revision cannot be used
@@ -27,9 +29,10 @@ let package = Package(
             name: "PVRemoteLibrary",
             dependencies: [.product(name: "PVSystems", package: "PVSystems")]
         ),
+        .target(name: "PVRemoteLibraryUI", dependencies: ["PVRemoteLibrary"]),
         .testTarget(
             name: "PVRemoteLibraryTests",
-            dependencies: ["PVRemoteLibrary", .product(name: "PVSystems", package: "PVSystems")]
+            dependencies: ["PVRemoteLibrary", "PVRemoteLibraryUI", .product(name: "PVSystems", package: "PVSystems")]
         )
     ]
 )

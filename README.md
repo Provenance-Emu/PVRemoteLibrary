@@ -17,6 +17,10 @@ library screens, alone or combined with the local one. It draws nothing.
 | `RemoteCoverCache` | Cover thumbnails on disk, revalidated by ETag |
 | `RemoteLibraryBrowser` | The `@Observable` view model an app's library screen reads |
 
+The optional product `PVRemoteLibraryUI` holds the SwiftUI pieces every app should draw
+the same way: `TransferBanner`, `TransferRing` and `SourcePill`. They take their colour
+from the view's tint.
+
 ## Using it
 
 ```swift
