@@ -1,7 +1,7 @@
 import Foundation
 import PVSystems
 
-public enum Availability: Sendable, Equatable {
+@frozen public enum Availability: Sendable, Equatable {
     /// The file is on this device and no source lists the game.
     case onDevice
     /// The file is on this device and at least one source lists the game.
@@ -16,7 +16,7 @@ public enum Availability: Sendable, Equatable {
     case unreachable
 }
 
-public enum TransferState: Sendable, Equatable {
+@frozen public enum TransferState: Sendable, Equatable {
     case queued
     case downloading(Double)
     case verifying
@@ -53,7 +53,7 @@ public struct SourceCatalogue: Sendable {
     }
 }
 
-public enum CombinedLibrary {
+@frozen public enum CombinedLibrary {
     public struct Section: Identifiable, Sendable, Equatable {
         /// nil holds games whose platform maps to no system.
         public var system: SystemIdentifier?

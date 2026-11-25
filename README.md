@@ -60,3 +60,17 @@ xcrun swift test
 First cut. Not built here: content-server, RomM and peer sources (each app adapts its
 own for now, because the server client package has no stable version tags to depend
 on), background downloads, save sync.
+
+## Prebuilt XCFrameworks
+
+A version tag resolves to prebuilt XCFrameworks: the tag's `Package.swift` is a
+`binaryTarget` pointing at the tag's GitHub Release, so an app that depends on a version
+compiles none of this package. `main` and every other branch build from source.
+
+To build a tagged version from source (to step into it in the debugger, say), set
+`PV_BUILD_FROM_SOURCE=1` in the environment `xcodebuild` or Xcode starts in, then resolve
+packages again.
+
+To release, run **Release XCFramework** from the Actions tab with the new version. Do not
+push version tags by hand: such a tag has no binary and builds from source.
+[How releases work](https://github.com/Provenance-Emu/.github/blob/main/docs/xcframework-releases.md).
