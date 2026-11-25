@@ -41,7 +41,7 @@ public struct CataloguePage: Sendable {
     }
 }
 
-public enum ArtworkResult: Sendable, Equatable {
+@frozen public enum ArtworkResult: Sendable, Equatable {
     /// The source has no cover for the game.
     case none
     /// The cover still matches the ETag that was sent.
@@ -49,7 +49,7 @@ public enum ArtworkResult: Sendable, Equatable {
     case image(Data, etag: String?)
 }
 
-public enum FetchProgress: Sendable, Equatable {
+@frozen public enum FetchProgress: Sendable, Equatable {
     case preparing
     /// 0...1 across every file of the game.
     case downloading(Double)

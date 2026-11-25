@@ -9,14 +9,14 @@ import PVSystems
 @MainActor
 @Observable
 public final class RemoteLibraryBrowser {
-    public enum Scope: Hashable, Sendable {
+    @frozen public enum Scope: Hashable, Sendable {
         /// Local games and every source, each game once.
         case combined
         case local
         case source(LibrarySourceID)
     }
 
-    public enum Phase: Equatable, Sendable {
+    @frozen public enum Phase: Equatable, Sendable {
         case idle
         case loading
         case loaded

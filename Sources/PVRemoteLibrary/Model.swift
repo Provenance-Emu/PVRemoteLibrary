@@ -12,7 +12,7 @@ public struct LibrarySourceID: RawRepresentable, Hashable, Codable, Sendable {
 
 /// What a library screen needs to label a source.
 public struct LibrarySourceInfo: Hashable, Codable, Sendable, Identifiable {
-    public enum Kind: String, Codable, Sendable {
+    @frozen public enum Kind: String, Codable, Sendable {
         case local, contentServer, romm, peer
     }
 
