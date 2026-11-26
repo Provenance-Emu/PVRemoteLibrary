@@ -22,6 +22,8 @@ public struct TransferDescription: Equatable, Sendable {
         switch state {
         case .queued:
             phase = "Preparing"
+        case .downloadingIndeterminate:
+            phase = "Downloading"
         case .downloading(let done):
             let clamped = min(max(done, 0), 1)
             phase = "Downloading"

@@ -51,6 +51,8 @@ public struct CataloguePage: Sendable {
 
 @frozen public enum FetchProgress: Sendable, Equatable {
     case preparing
+    /// The source is downloading and cannot report a completion fraction.
+    case downloadingIndeterminate
     /// 0...1 across every file of the game.
     case downloading(Double)
     case verifying

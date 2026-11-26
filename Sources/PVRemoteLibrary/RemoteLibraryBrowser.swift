@@ -245,6 +245,7 @@ public final class RemoteLibraryBrowser {
         guard fetches[id] != nil, transfers[id] != .importing else { return }
         switch progress {
         case .preparing: setTransfer(.queued, for: id)
+        case .downloadingIndeterminate: setTransfer(.downloadingIndeterminate, for: id)
         case .downloading(let fraction): setTransfer(.downloading(fraction), for: id)
         case .verifying: setTransfer(.verifying, for: id)
         }

@@ -18,6 +18,8 @@ import PVSystems
 
 @frozen public enum TransferState: Sendable, Equatable {
     case queued
+    /// The download is underway and its completion fraction is unknown.
+    case downloadingIndeterminate
     case downloading(Double)
     case verifying
     case importing
