@@ -10,6 +10,14 @@ import Testing
         #expect(TransferDescription(.downloading(-1)).percent == "0%")
     }
 
+    @Test func indeterminateDownloadShowsDownloadingWithoutAPercentage() {
+        let description = TransferDescription(.downloadingIndeterminate)
+        #expect(description.phase == "Downloading")
+        #expect(description.fraction == nil)
+        #expect(description.percent == nil)
+        #expect(description.canCancel)
+    }
+
     @Test func phasesWithoutAnAmountAreIndeterminate() {
         for state in [TransferState.queued, .verifying, .importing] {
             #expect(TransferDescription(state).fraction == nil)
